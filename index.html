@@ -43,11 +43,13 @@
       position:sticky;top:0;z-index:50;background:rgba(255,253,248,.92);
       backdrop-filter:blur(12px);border-bottom:1px solid rgba(125,22,36,.09)
     }
-    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700}
-    .brand-mark{width:34px;height:34px;border:1px solid var(--burgundy);border-radius:50%;display:grid;place-items:center;color:var(--burgundy);font-size:.8rem}
-    .links{display:flex;gap:24px;font-size:.88rem;color:#5e514a}
-    .cta-row{display:flex;gap:10px;align-items:center}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap}
+    .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700;white-space:nowrap;flex:none}
+    .brand-mark{width:34px;height:34px;border:1px solid var(--burgundy);border-radius:50%;display:grid;place-items:center;color:var(--burgundy);font-size:.8rem;flex:none}
+    .links{display:flex;gap:18px;font-size:.84rem;color:#5e514a;white-space:nowrap;flex-wrap:nowrap;min-width:0}
+    .links a{white-space:nowrap}
+    .cta-row{display:flex;gap:10px;align-items:center;white-space:nowrap;flex:none}
+    .cta-row .btn{white-space:nowrap}
     .btn{border:0;border-radius:12px;padding:12px 18px;font-weight:700;font-family:var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
     .btn.primary{background:var(--burgundy);color:white;box-shadow:0 8px 18px rgba(125,22,36,.18)}
     .btn.gold{background:var(--gold);color:#3d2a00}
@@ -165,7 +167,12 @@
     .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
     .modal-note{font-size:.76rem;color:#95857c;margin-top:12px}
 
-    @media(max-width:920px){
+    @media(max-width:1240px){
+      .links{gap:13px;font-size:.78rem}
+      .cta-row{gap:8px}
+      .cta-row .btn{padding:10px 13px;font-size:.82rem}
+    }
+    @media(max-width:1040px){
       .links{display:none}
       .hero-grid,.fullmenu,.space-grid,.visit-grid{grid-template-columns:1fr}
       .why-grid{grid-template-columns:1fr 1fr}
@@ -232,7 +239,7 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="images/bun-ca-cham.png" alt="Set bún cá chấm tại Bún Cá Chấm 0?">
+      <img src="assets/images/bun-ca-cham.png" alt="Set bún cá chấm tại Bún Cá Chấm 0?">
       <div class="photo-tag">Cá giòn • rau tươi • chấm đậm vị</div>
       <div class="photo-note"><strong>257 Nguyễn Trãi</strong><br>Phường Cầu Ông Lãnh, TP.HCM</div>
     </div>
@@ -258,7 +265,7 @@
     <h2 class="section-title">Ba món nên thử đầu tiên</h2>
     <div class="menu-grid">
       <article class="dish">
-        <img src="images/bun-ca-cham.png" alt="Bún cá chấm">
+        <img src="assets/images/bun-ca-cham.png" alt="Bún cá chấm">
         <div class="dish-body">
           <h3>Bún cá chấm</h3>
           <p>Cá chiên giòn, bún tươi, rau sống và chén nước chấm tỏi ớt riêng.</p>
@@ -266,7 +273,7 @@
         </div>
       </article>
       <article class="dish">
-        <img src="images/bun-ca-chan.png" alt="Bún cá chan">
+        <img src="assets/images/bun-ca-chan.png" alt="Bún cá chan">
         <div class="dish-body">
           <h3>Bún cá chan</h3>
           <p>Tô bún nóng với cá chiên, rau thơm và nước dùng thanh ngọt, dễ ăn.</p>
@@ -274,7 +281,7 @@
         </div>
       </article>
       <article class="dish">
-        <img src="images/bun-gia-cay.png" alt="Bún giả cầy">
+        <img src="assets/images/bun-gia-cay.png" alt="Bún giả cầy">
         <div class="dish-body">
           <h3>Bún giả cầy</h3>
           <p>Giả cầy đậm vị riềng mẻ, ăn kèm bún, phù hợp khách thích hương vị đậm và ấm.</p>
@@ -298,13 +305,13 @@
       </div>
       <a class="btn primary" href="https://app.grab.com/s/5lB9gv3L" target="_blank">Xem & đặt món trên Grab</a>
     </div>
-    <img src="images/menu.png" alt="Thực đơn Bún Cá Chấm 0?">
+    <img src="assets/images/menu.png" alt="Thực đơn Bún Cá Chấm 0?">
   </div>
 </section>
 
 <section id="space" class="section space">
   <div class="shell space-grid">
-    <div class="space-photo"><img src="images/bun-ca-cham.png" alt="Món ăn Bún Cá Chấm 0?"></div>
+    <div class="space-photo"><img src="assets/images/bun-ca-cham.png" alt="Món ăn Bún Cá Chấm 0?"></div>
     <div>
       <div class="eyebrow">Không gian & phong cách</div>
       <h2 class="section-title">Điểm đến ấm cúng giữa lòng TP.HCM</h2>
