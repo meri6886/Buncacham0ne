@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#7D1624">
+  <title>Bún Cá Chấm 0? — Không Điểm Nào Chê</title>
+  <meta name="description" content="Bún Cá Chấm 0? — Bún cá chấm, bún cá chan và bún giả cầy tại 257 Nguyễn Trãi, Phường Cầu Ông Lãnh, TP. Hồ Chí Minh.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --burgundy:#7D1624;
+      --burgundy-2:#9B2536;
+      --cream:#FBF4E7;
+      --ivory:#FFFDF8;
+      --ink:#2F241F;
+      --muted:#7B6C63;
+      --gold:#D7A72D;
+      --green:#173E2A;
+      --line:#E8DCC9;
+      --shadow:0 18px 50px rgba(58,34,25,.12);
+      --radius:22px;
+      --serif:"Playfair Display", Georgia, serif;
+      --sans:"Be Vietnam Pro", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans)}
+    body.modal-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%}
+    .shell{max-width:1180px;margin:auto;padding:0 22px}
+    .eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:700;color:var(--burgundy)}
+    .section{padding:88px 0}
+    .section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;margin:.35rem 0 1rem}
+    .lead{font-size:1.03rem;line-height:1.8;color:var(--muted);max-width:700px}
+
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(255,253,248,.92);
+      backdrop-filter:blur(12px);border-bottom:1px solid rgba(125,22,36,.09)
+    }
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700}
+    .brand-mark{width:34px;height:34px;border:1px solid var(--burgundy);border-radius:50%;display:grid;place-items:center;color:var(--burgundy);font-size:.8rem}
+    .links{display:flex;gap:24px;font-size:.88rem;color:#5e514a}
+    .cta-row{display:flex;gap:10px;align-items:center}
+    .btn{border:0;border-radius:12px;padding:12px 18px;font-weight:700;font-family:var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+    .btn.primary{background:var(--burgundy);color:white;box-shadow:0 8px 18px rgba(125,22,36,.18)}
+    .btn.gold{background:var(--gold);color:#3d2a00}
+    .btn.ghost{background:#fff;border:1px solid var(--line)}
+
+    .hero{padding:74px 0 40px;background:
+      radial-gradient(circle at 85% 15%,rgba(215,167,45,.13),transparent 26%),
+      linear-gradient(180deg,#fffaf1 0,#fffdf8 100%)}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:58px;align-items:center}
+    .hero h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5.6rem);line-height:.94;margin:18px 0;color:var(--burgundy)}
+    .hero h1 span{display:block;color:var(--ink);font-size:.56em;font-style:italic;margin-top:14px}
+    .hero-copy{font-size:1.06rem;line-height:1.85;color:#675951;max-width:640px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
+    .mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+    .stat{border-top:1px solid var(--line);padding-top:15px}
+    .stat b{font-family:var(--serif);font-size:1.3rem;color:var(--burgundy)}
+    .stat small{display:block;color:var(--muted);margin-top:4px}
+    .hero-photo{position:relative}
+    .hero-photo img{border-radius:28px;aspect-ratio:4/4.4;object-fit:cover;box-shadow:var(--shadow)}
+    .photo-tag{position:absolute;right:-14px;top:22px;background:var(--burgundy);color:white;padding:13px 16px;border-radius:14px;font-size:.8rem;font-weight:700;box-shadow:var(--shadow)}
+    .photo-note{position:absolute;left:-18px;bottom:24px;background:white;padding:14px 16px;border-radius:14px;box-shadow:var(--shadow);font-size:.83rem}
+
+    .why{background:#fff}
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+    .why-card{padding:26px;border:1px solid var(--line);border-radius:18px;background:#fff;min-height:210px}
+    .num{font-family:var(--serif);font-size:1.8rem;color:var(--gold)}
+    .why-card h3{font-family:var(--serif);font-size:1.25rem;margin:14px 0 10px}
+    .why-card p{color:var(--muted);font-size:.9rem;line-height:1.7}
+
+    .menu-section{background:var(--cream)}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+    .dish{background:#fff;border:1px solid #eadbc7;border-radius:20px;overflow:hidden;box-shadow:0 10px 28px rgba(82,55,41,.08)}
+    .dish img{height:260px;object-fit:cover;background:#fff}
+    .dish-body{padding:20px}
+    .dish h3{font-family:var(--serif);font-size:1.55rem;margin:0 0 9px}
+    .dish p{color:var(--muted);line-height:1.7;font-size:.9rem;min-height:75px}
+    .price{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+    .price strong{font-size:1.15rem;color:var(--burgundy)}
+
+    .fullmenu{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:center}
+    .fullmenu img{border-radius:24px;box-shadow:var(--shadow);border:1px solid var(--line)}
+    .ticks{display:grid;gap:12px;margin:22px 0}
+    .tick{display:flex;gap:10px;align-items:flex-start;color:#5e514a}
+    .tick i{width:24px;height:24px;border-radius:50%;background:#f3e6c2;display:grid;place-items:center;color:#765109;font-style:normal;font-weight:700;flex:none}
+
+    .space{background:#fff}
+    .space-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+    .space-photo img{border-radius:22px;box-shadow:var(--shadow)}
+    .feature-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+    .feature{padding:17px;border-radius:14px;background:#fcf8f1;border:1px solid var(--line);font-size:.9rem}
+
+    .reviews{background:#fffaf2}
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .review{background:#fff;border:1px solid var(--line);padding:24px;border-radius:18px}
+    .stars{color:var(--gold);letter-spacing:.08em}
+    .review p{line-height:1.75;color:#62564f;font-size:.92rem}
+
+    .visit{background:#fff}
+    .visit-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px}
+    .contact-card{border:1px solid var(--line);border-radius:20px;padding:28px;background:#fffaf2}
+    .contact-item{padding:15px 0;border-bottom:1px solid var(--line)}
+    .contact-item:last-child{border:0}
+    .map-card{border-radius:20px;overflow:hidden;border:1px solid var(--line);min-height:430px;background:#eee}
+    .map-card iframe{width:100%;height:100%;min-height:430px;border:0}
+
+    footer{background:linear-gradient(120deg,#681421,#8d1e30);color:#fff3dc;padding:48px 0 24px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px}
+    footer h3{font-family:var(--serif);font-size:1.5rem;margin-top:0}
+    footer p, footer li{color:#f5dcca;line-height:1.8;font-size:.88rem}
+    footer ul{list-style:none;padding:0;margin:0}
+    .copyright{border-top:1px solid rgba(255,255,255,.18);margin-top:30px;padding-top:18px;font-size:.8rem;color:#f0cabf}
+
+    /* RIGHT FLOATING SIDEBAR */
+    .floating{
+      position:fixed;right:18px;top:50%;transform:translateY(-50%);
+      z-index:70;display:grid;gap:10px
+    }
+    .fab{
+      width:54px;height:54px;border-radius:16px;display:grid;place-items:center;
+      box-shadow:0 10px 24px rgba(0,0,0,.16);font-size:1.1rem;
+      transition:.18s ease;position:relative
+    }
+    .fab:hover{transform:translateX(-4px)}
+    .fab::after{
+      content:attr(data-label);position:absolute;right:64px;top:50%;transform:translateY(-50%);
+      background:#2b211d;color:white;padding:8px 10px;border-radius:8px;font-size:.72rem;
+      white-space:nowrap;opacity:0;pointer-events:none;transition:.15s
+    }
+    .fab:hover::after{opacity:1}
+    .fab.call{background:var(--gold);color:#432d00}
+    .fab.zalo{background:#0068ff;color:white;font-weight:800;font-size:.76rem}
+    .fab.maps{background:white;color:#a62733;border:1px solid var(--line)}
+    .fab.grab{background:#00b14f;color:white;font-size:.7rem;font-weight:900}
+
+    /* GRAB POPUP */
+    .modal{
+      position:fixed;inset:0;background:rgba(36,21,17,.58);backdrop-filter:blur(6px);
+      z-index:999;display:none;align-items:center;justify-content:center;padding:20px
+    }
+    .modal.show{display:flex}
+    .modal-card{
+      width:min(520px,100%);background:#fffaf2;border-radius:24px;padding:28px;
+      box-shadow:0 30px 90px rgba(0,0,0,.28);position:relative;border:1px solid #eadbc7
+    }
+    .modal-close{
+      position:absolute;right:14px;top:14px;border:0;background:white;border:1px solid var(--line);
+      width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer
+    }
+    .modal-badge{
+      display:inline-flex;background:#e8f7ee;color:#087f39;border-radius:999px;
+      padding:8px 12px;font-weight:700;font-size:.78rem
+    }
+    .modal h2{font-family:var(--serif);font-size:2.25rem;margin:14px 0 10px;color:var(--burgundy)}
+    .modal p{color:var(--muted);line-height:1.7}
+    .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .modal-note{font-size:.76rem;color:#95857c;margin-top:12px}
+
+    @media(max-width:920px){
+      .links{display:none}
+      .hero-grid,.fullmenu,.space-grid,.visit-grid{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr 1fr}
+      .menu-grid,.review-grid{grid-template-columns:1fr}
+      .hero-photo{max-width:650px}
+      .hero-photo img{aspect-ratio:16/12}
+      .footer-grid{grid-template-columns:1fr}
+      .floating{right:10px}
+    }
+    @media(max-width:600px){
+      .shell{padding:0 16px}
+      .section{padding:64px 0}
+      .nav{height:64px}
+      .brand span:last-child{display:none}
+      .cta-row .ghost{display:none}
+      .hero{padding-top:48px}
+      .hero-grid{gap:34px}
+      .mini-stats{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr}
+      .feature-list{grid-template-columns:1fr}
+      .hero h1{font-size:3.5rem}
+      .photo-tag{right:8px}
+      .photo-note{left:8px}
+      .floating{top:auto;bottom:14px;left:50%;right:auto;transform:translateX(-50%);display:flex}
+      .fab{width:48px;height:48px;border-radius:14px}
+      .fab::after{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="shell nav">
+    <a class="brand" href="#top"><span class="brand-mark">0?</span><span>Bún Cá Chấm 0?</span></a>
+    <nav class="links">
+      <a href="#menu">Thực Đơn Đặc Sắc</a>
+      <a href="#why">Bí Quyết 0 Chê</a>
+      <a href="#space">Không Gian Quán</a>
+      <a href="#reviews">Đánh Giá Thực Khách</a>
+      <a href="#visit">Địa Chỉ & Giờ Mở</a>
+    </nav>
+    <div class="cta-row">
+      <a class="btn ghost" href="tel:0912615555">☎ 0912 615 555</a>
+      <a class="btn primary" href="https://app.grab.com/s/5lB9gv3L" target="_blank" rel="noopener">Đặt món</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="shell hero-grid">
+    <div>
+      <div class="eyebrow">Tinh hoa bún cá chấm giữa lòng Sài Gòn</div>
+      <h1>BÚN CÁ CHẤM 0?<span>Không điểm nào chê</span></h1>
+      <p class="hero-copy">Cá chiên giòn vàng, bún trắng mềm, rau tươi và bát nước chấm đậm vị. Một trải nghiệm gần gũi, ấm cúng, gợi nhớ hương vị Bắc nhưng vừa vặn với nhịp sống Sài Gòn.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://app.grab.com/s/5lB9gv3L" target="_blank" rel="noopener">Đặt món qua Grab</a>
+        <a class="btn gold" href="https://maps.app.goo.gl/SaAySwefYBYgU3yR8" target="_blank" rel="noopener">Chỉ đường Google Maps</a>
+      </div>
+      <div class="mini-stats">
+        <div class="stat"><b>100%</b><small>Cá chiên tại quán</small></div>
+        <div class="stat"><b>0?</b><small>Không điểm nào chê</small></div>
+        <div class="stat"><b>Q.1</b><small>257 Nguyễn Trãi</small></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/images/bun-ca-cham.png" alt="Set bún cá chấm tại Bún Cá Chấm 0?">
+      <div class="photo-tag">Cá giòn • rau tươi • chấm đậm vị</div>
+      <div class="photo-note"><strong>257 Nguyễn Trãi</strong><br>Phường Cầu Ông Lãnh, TP.HCM</div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="section why">
+  <div class="shell">
+    <div class="eyebrow">Vì sao thực khách lại tìm quán?</div>
+    <h2 class="section-title">Bốn điều làm nên một bữa “không điểm nào chê”</h2>
+    <div class="why-grid">
+      <article class="why-card"><div class="num">01</div><h3>Cá tươi, chiên giòn rụm</h3><p>Cá được chiên vàng giòn, giữ độ ẩm bên trong, mang lại cảm giác giòn ngoài – mềm trong.</p></article>
+      <article class="why-card"><div class="num">02</div><h3>Nước chấm tròn vị</h3><p>Vị mặn, ngọt, chua và cay cân bằng, đủ đậm để ăn cùng cá nhưng không lấn át nguyên liệu.</p></article>
+      <article class="why-card"><div class="num">03</div><h3>Nước chan thanh, dễ ăn</h3><p>Dành cho khách thích một tô bún nóng hổi, thanh vị nhưng vẫn rõ hương cá và rau thơm.</p></article>
+      <article class="why-card"><div class="num">04</div><h3>Không gian ấm cúng</h3><p>Phong cách gần gũi, phù hợp đi ăn nhanh, đi nhóm hoặc một bữa cơm nhẹ nhàng giữa trung tâm.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="section menu-section">
+  <div class="shell">
+    <div class="eyebrow">Thực đơn tinh hoa</div>
+    <h2 class="section-title">Ba món nên thử đầu tiên</h2>
+    <div class="menu-grid">
+      <article class="dish">
+        <img src="assets/images/bun-ca-cham.png" alt="Bún cá chấm">
+        <div class="dish-body">
+          <h3>Bún cá chấm</h3>
+          <p>Cá chiên giòn, bún tươi, rau sống và chén nước chấm tỏi ớt riêng.</p>
+          <div class="price"><strong>70.000đ</strong><a class="btn gold" href="https://app.grab.com/s/5lB9gv3L" target="_blank">Chọn món</a></div>
+        </div>
+      </article>
+      <article class="dish">
+        <img src="assets/images/bun-ca-chan.png" alt="Bún cá chan">
+        <div class="dish-body">
+          <h3>Bún cá chan</h3>
+          <p>Tô bún nóng với cá chiên, rau thơm và nước dùng thanh ngọt, dễ ăn.</p>
+          <div class="price"><strong>70.000đ</strong><a class="btn gold" href="https://app.grab.com/s/5lB9gv3L" target="_blank">Chọn món</a></div>
+        </div>
+      </article>
+      <article class="dish">
+        <img src="assets/images/bun-gia-cay.png" alt="Bún giả cầy">
+        <div class="dish-body">
+          <h3>Bún giả cầy</h3>
+          <p>Giả cầy đậm vị riềng mẻ, ăn kèm bún, phù hợp khách thích hương vị đậm và ấm.</p>
+          <div class="price"><strong>80.000đ</strong><a class="btn gold" href="https://app.grab.com/s/5lB9gv3L" target="_blank">Chọn món</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell fullmenu">
+    <div>
+      <div class="eyebrow">Menu đầy đủ</div>
+      <h2 class="section-title">Một bảng giá rõ ràng, dễ chọn món</h2>
+      <p class="lead">Giữ nguyên bảng menu của quán, đồng thời ưu tiên các món chính và món gọi thêm.</p>
+      <div class="ticks">
+        <div class="tick"><i>✓</i><span>Bún cá chấm 70.000đ • Bún cá chấm đặc biệt 85.000đ • Bún cá nước 70.000đ</span></div>
+        <div class="tick"><i>✓</i><span>Bún giả cầy 80.000đ • Giả cầy thêm 50.000đ • Cá chiên thêm 50.000đ</span></div>
+        <div class="tick"><i>✓</i><span>Chả cá chiên thêm lớn 50.000đ • nhỏ 25.000đ • đồ uống từ 5.000đ</span></div>
+      </div>
+      <a class="btn primary" href="https://app.grab.com/s/5lB9gv3L" target="_blank">Xem & đặt món trên Grab</a>
+    </div>
+    <img src="assets/images/menu.png" alt="Thực đơn Bún Cá Chấm 0?">
+  </div>
+</section>
+
+<section id="space" class="section space">
+  <div class="shell space-grid">
+    <div class="space-photo"><img src="assets/images/bun-ca-cham.png" alt="Món ăn Bún Cá Chấm 0?"></div>
+    <div>
+      <div class="eyebrow">Không gian & phong cách</div>
+      <h2 class="section-title">Điểm đến ấm cúng giữa lòng TP.HCM</h2>
+      <p class="lead">Tại 257 Nguyễn Trãi, Phường Cầu Ông Lãnh, quán hướng đến cảm giác gần gũi, sạch sẽ, thuận tiện cho bữa trưa, bữa tối hoặc gặp gỡ bạn bè.</p>
+      <div class="feature-list">
+        <div class="feature">🕒 Mở cửa hằng ngày</div>
+        <div class="feature">📍 Trung tâm Quận 1</div>
+        <div class="feature">🍜 Món lên nhanh</div>
+        <div class="feature">👥 Phù hợp đi nhóm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="section reviews">
+  <div class="shell">
+    <div class="eyebrow">Trải nghiệm thực khách</div>
+    <h2 class="section-title">Điều khách nhớ sau một bữa ăn</h2>
+    <div class="review-grid">
+      <article class="review"><div class="stars">★★★★★</div><p>“Cá giòn, bún mềm, nước chấm đậm vị. Kiểu món dễ ăn và hợp để quay lại cùng bạn bè.”</p><strong>Khách tại quán</strong></article>
+      <article class="review"><div class="stars">★★★★★</div><p>“Nước dùng thanh, phần cá vẫn giữ độ giòn. Không gian sáng và khá dễ tìm ở khu trung tâm.”</p><strong>Khách tại quán</strong></article>
+      <article class="review"><div class="stars">★★★★★</div><p>“Menu rõ ràng, giá dễ chọn, món đặc trưng nhất vẫn là set bún cá chấm ăn cùng rau tươi.”</p><strong>Khách tại quán</strong></article>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="section visit">
+  <div class="shell visit-grid">
+    <div class="contact-card">
+      <div class="eyebrow">Thông tin đến quán</div>
+      <h2 class="section-title" style="font-size:2.25rem">Ghé thưởng thức tại Bún Cá Chấm 0?</h2>
+      <div class="contact-item"><strong>Địa chỉ</strong><br>257 Nguyễn Trãi, Phường Cầu Ông Lãnh, TP. Hồ Chí Minh</div>
+      <div class="contact-item"><strong>Hotline / Zalo</strong><br><a href="tel:0912615555">0912 615 555</a></div>
+      <div class="contact-item"><strong>Đặt giao món</strong><br><a href="https://app.grab.com/s/5lB9gv3L" target="_blank">GrabFood</a></div>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://maps.app.goo.gl/SaAySwefYBYgU3yR8" target="_blank">Chỉ đường</a>
+        <a class="btn gold" href="https://zalo.me/0912615555" target="_blank">Nhắn Zalo</a>
+      </div>
+    </div>
+    <div class="map-card">
+      <iframe title="Bản đồ Bún Cá Chấm 0?" loading="lazy" allowfullscreen
+        src="https://www.google.com/maps?q=257%20Nguy%E1%BB%85n%20Tr%C3%A3i%2C%20Ph%C6%B0%E1%BB%9Dng%20C%E1%BA%A7u%20%C3%94ng%20L%C3%A3nh%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="footer-grid">
+      <div><h3>Bún Cá Chấm 0?</h3><p><strong>Không điểm nào chê.</strong><br>Hương vị Bắc, phong cách gần gũi, dành cho một bữa ăn chỉn chu ngay giữa Sài Gòn.</p></div>
+      <div><h3>Liên hệ & ghé quán</h3><p>257 Nguyễn Trãi, Phường Cầu Ông Lãnh, TP.HCM<br>Hotline / Zalo: 0912 615 555</p></div>
+      <div><h3>Đường dẫn nhanh</h3><ul><li><a href="https://maps.app.goo.gl/SaAySwefYBYgU3yR8" target="_blank">Google Maps</a></li><li><a href="https://app.grab.com/s/5lB9gv3L" target="_blank">Đặt món Grab</a></li><li><a href="https://zalo.me/0912615555" target="_blank">Nhắn Zalo</a></li></ul></div>
+    </div>
+    <div class="copyright">© 2026 Bún Cá Chấm 0? • Thiết kế theo phong cách đỏ đô – kem – xanh rêu.</div>
+  </div>
+</footer>
+
+<!-- Floating sidebar -->
+<div class="floating" aria-label="Liên hệ nhanh">
+  <a class="fab call" data-label="Gọi quán" href="tel:0912615555" aria-label="Gọi quán">☎</a>
+  <a class="fab zalo" data-label="Nhắn Zalo" href="https://zalo.me/0912615555" target="_blank" rel="noopener" aria-label="Nhắn Zalo">Zalo</a>
+  <a class="fab maps" data-label="Google Maps" href="https://maps.app.goo.gl/SaAySwefYBYgU3yR8" target="_blank" rel="noopener" aria-label="Google Maps">📍</a>
+  <a class="fab grab" data-label="Đặt Grab" href="https://app.grab.com/s/5lB9gv3L" target="_blank" rel="noopener" aria-label="Đặt Grab">GRAB</a>
+</div>
+
+<!-- Grab popup -->
+<div class="modal" id="grabModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="grabTitle">
+    <button class="modal-close" id="closeModal" aria-label="Đóng">×</button>
+    <span class="modal-badge">🛵 Đặt món nhanh trên Grab</span>
+    <h2 id="grabTitle">Đói rồi? Bún cá đang chờ bạn.</h2>
+    <p>Đặt Bún Cá Chấm 0? ngay trên Grab để xem menu và chọn món nhanh hơn.</p>
+    <div class="modal-actions">
+      <a class="btn primary" href="https://app.grab.com/s/5lB9gv3L" target="_blank" rel="noopener">Mở Grab ngay</a>
+      <button class="btn ghost" id="laterBtn" type="button">Để lát xem</button>
+    </div>
+    <div class="modal-note">Popup chỉ hiện 1 lần trong mỗi phiên truy cập để tránh làm phiền khách.</div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const modal = document.getElementById('grabModal');
+    const closeBtn = document.getElementById('closeModal');
+    const laterBtn = document.getElementById('laterBtn');
+
+    function openModal() {
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+    function closeModal() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      sessionStorage.setItem('grabPopupSeen', '1');
+    }
+
+    window.addEventListener('load', function () {
+      if (!sessionStorage.getItem('grabPopupSeen')) {
+        setTimeout(openModal, 700);
+      }
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    laterBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+    });
+  })();
+</script>
+
+</body>
+</html>
